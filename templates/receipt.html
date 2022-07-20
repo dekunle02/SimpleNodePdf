@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Receipt</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="company">
+      <img src="${logo_url}" alt="company" style="height: 80px" />
+      <span style="float: right"> Issued on: ${issued_date} </span>
+    </div>
+
+    <br />
+    <h2 class="title">PAYMENT RECEIPT</h2>
+
+    <div class="qr-section">
+      <div class="qr-info">
+        <span>Ref No:</span>
+        <span class="ref-number">${reference_number}</span>
+        <p>Paid by: <u>${payer}</u></p>
+        <p>Email:${payer_email}</p>
+        <p>Phone:${payer_phone}</p>
+      </div>
+      <div class="qr-container">
+        <img src="${qr}" alt="qr" class="qr" />
+      </div>
+    </div>
+
+    <br />
+
+    <p class="sub-head">STUDENT DETAILS</p>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>${student_name}</td>
+      </tr>
+      <tr>
+        <th>School</th>
+        <td>${school_name}</td>
+      </tr>
+      <tr>
+        <th>Class</th>
+        <td>${classroom_name}</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <p class="sub-head">PAYMENT DETAILS</p>
+    <table>
+      <tr>
+        <th>Fee</th>
+        <th>Session/Term</th>
+        <th>Amount Due</th>
+        <th>Amount Paid</th>
+      </tr>
+
+      <tr>
+        <td>${payment.fee.title}</td>
+        <td>${payment.fee.session.name} ${payment.fee.term.name}</td>
+        <td>${str(payment.fee.amount)}</td>
+        <td>${str(payment.amount_paid)}</td>
+      </tr>
+
+      <tr>
+        <td>${payment.credit.fee.title}</td>
+        <td>
+          ${payment.credit.fee.session.name} ${payment.credit.fee.term.name}
+        </td>
+        <td>${str(payment.credit.amount)}</td>
+        <td>${str(payment.amount_paid)}</td>
+      </tr>
+
+      <tr>
+        <td>Extra Payment</td>
+        <td>-</td>
+        <td>-</td>
+        <td>200</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td><b>Amount Paid:</b></td>
+        <td class="total">20</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td><b>Amount Owed:</b></td>
+        <td class="total-credit">5000</td>
+      </tr>
+    </table>
+  </body>
+</html>
