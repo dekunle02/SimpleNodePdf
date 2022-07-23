@@ -10,7 +10,7 @@ const rootDir = require("./util/path")
 
 var approvedOrigins = ['http://localhost:3000', 'http://127.0.0.1:8000']
 if (process.env.DEVELOPMENT_MODE !== 'True') {
-    approvedOrigins = ['http://example.com',]
+    approvedOrigins = ['*',]
 }
 
 var corsOptions = {
